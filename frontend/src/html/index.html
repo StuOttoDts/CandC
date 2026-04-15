@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/frontend/src/styles/main.css">
+  <title>Cheff&Cuccina</title>
+</head>
+<body>
+  <div class="page-shell">
+    <aside class="sidebar left-sidebar">
+      <div class="sidebar-brand">Cheff&Cuccina</div>
+      <div class="sidebar-profile-card sidebar-top-card">
+        <div class="profile-avatar">C</div>
+        <div>
+          <strong id="userName" alt="User Name"></strong>
+          <p id="userLogged" alt="User Logged"></p>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="#" class="sidebar-link active" data-section="home">Início</a>
+        <a href="#" class="sidebar-link" data-section="explore">Explorar</a>
+        <a href="#" class="sidebar-link" data-section="messages">Mensagens</a>
+        <a href="#" class="sidebar-link" data-section="notifications">Notificações</a>
+        <a href="#" class="sidebar-link" id="logoutLink">Sair</a>
+      </nav>
+    </aside>
+
+    <main class="main-column">
+      <header class="main-header">
+        <div class="main-actions main-actions-only">
+          <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Alternar modo">
+            <span class="theme-icon">🌙</span>
+          </button>
+          <button class="new-recipe-btn" id="openModalBtn" aria-label="Nova receita">
+            <span class="button-icon" aria-hidden="true">📖</span>
+            <span class="button-plus" aria-hidden="true">+</span>
+          </button>
+        </div>
+      </header>
+
+      <section class="feed" id="feed">
+        <div class="empty-state">
+          <h2>Seu feed de receitas</h2>
+          <p>Adicione uma nova receita e ela aparecerá aqui.</p>
+        </div>
+      </section>
+
+      <section class="content-panel hidden" id="explorePanel">
+        <p><strong>Explorar</strong></p>
+        <div class="Explore-header" id="Explore-header">
+          <input type="text" id="searchInput" placeholder="Buscar receitas..." />
+          <div id="searchResultsExplore" class="search-resultsExplore"></div>
+        </div>
+
+      </section>
+
+      <section class="content-panel hidden" id="messagesPanel">
+        <h2>Mensagens</h2>
+        <div class="inbox-header" id="inbox-header">
+          
+          <p>Ainda não há mensagens. Interaja com outras receitas para começar a conversar!</p>
+        </div>
+      </section>
+
+      <section class="content-panel hidden" id="notificationsPanel">
+        <div class="panel-card">
+          <h2>Notificações</h2>
+          <p>Veja as ações recentes do seu perfil e interações com as receitas.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="modal-overlay hidden" id="modalOverlay">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2>Nova receita</h2>
+        <button class="close-btn" id="closeModalBtn">×</button>
+      </div>
+
+      <form id="recipeForm" class="recipe-form">
+        <label>
+          Nome da receita
+          <input type="text" name="title" id="recipeTitle" placeholder="Ex: Bolo de cenoura" required />
+        </label>
+
+        <label>
+          Ingredientes
+          <textarea name="ingredients" id="recipeIngredients" rows="4" placeholder="Liste os ingredientes separados por vírgula" required></textarea>
+        </label>
+
+        <label>
+          Modo de preparo
+          <textarea name="preparation" id="recipePreparation" rows="5" placeholder="Descreva o passo a passo" required></textarea>
+        </label>
+
+        <label class="file-label" for="recipeImage">
+          Imagem da receita
+          <span class="camera-button" aria-hidden="true">📷</span>
+          <input type="file" id="recipeImage" accept="image/*" />
+        </label>
+
+        <div class="image-preview hidden" id="imagePreviewContainer">
+          <img id="imagePreview" alt="Prévia da receita" />
+          <button type="button" class="remove-image-btn" id="removeImageBtn">Remover imagem</button>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="secondary-btn" id="cancelBtn">Cancelar</button>
+          <button type="submit" class="primary-btn">Publicar receita</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script type="module" src="/frontend/src/js/main.js"></script>
+</body>
+</html>
