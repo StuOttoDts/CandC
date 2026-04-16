@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="/frontend/src/styles/main.css">
   <title>Cheff&Cuccina</title>
 </head>
-<body>
+<body data-page="index">
   <div class="page-shell">
     <aside class="sidebar left-sidebar">
       <div class="sidebar-brand">Cheff&Cuccina</div>
@@ -95,11 +95,11 @@
           <textarea name="preparation" id="recipePreparation" rows="5" placeholder="Descreva o passo a passo" required></textarea>
         </label>
 
-        <label class="file-label" for="recipeImage">
-          Imagem da receita
-          <span class="camera-button" aria-hidden="true">📷</span>
+       <label id="recipeImageLabel" class="file-label" for="recipeImage">
+          <span class="sr-only">Selecionar imagem da receita</span>
+          <span class="camera-button" id="camera-button" aria-hidden="true"></span>
           <input type="file" id="recipeImage" accept="image/*" />
-        </label>
+<       /label>
 
         <div class="image-preview hidden" id="imagePreviewContainer">
           <img id="imagePreview" alt="Prévia da receita" />

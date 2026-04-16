@@ -1,14 +1,19 @@
 export function renderEmptyState(feed) {
   const empty = feed.querySelector('.empty-state');
 
-  if (!feed.children.length) {
+  const hasCards = feed.querySelector('.card');
+
+  if (!hasCards) {
     if (!empty) {
       const el = document.createElement('div');
       el.className = 'empty-state';
-      el.innerHTML = '<h2>Seu feed de receitas</h2>';
+      el.innerHTML = `
+        <h2>Seu feed de receitas</h2>
+        <p>Adicione uma nova receita e ela aparecerá aqui.</p>
+      `;
       feed.appendChild(el);
     }
-  } else if (empty) {
-    empty.remove();
+  } else {
+    if (empty) empty.remove();
   }
 }

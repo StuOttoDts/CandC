@@ -1,10 +1,10 @@
 export function setupLogin() {
   const form = document.getElementById('loginForm');
-  if (!form) return; // evita erro se não estiver na tela de login
+  if (!form) return;
 
   const errorMsg = document.getElementById('errorMsg');
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const username = document.getElementById('username').value.trim();
@@ -15,12 +15,33 @@ export function setupLogin() {
       return;
     }
 
-    if (username === 'rafael.otto' && password === '1234') {
-      localStorage.setItem('userLogged', 'rafael.otto');
-      localStorage.setItem('userName', 'Rafael Otto');
-      window.location.href = './index.html'; // sua tela principal
-    } else {
-      showError('Usuário ou senha inválidos');
+    try {
+      const response = await fetch('http://localhost:3000/users/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          username,
+          password
+        })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        showError(data.error || 'Erro ao fazer login');
+        return;
+      }
+
+      // salva token JWT
+      localStorage.setItem('userLogged', username);
+      localStorage.setItem('userName', data.name || username);
+
+      window.location.href = './index.html';
+
+    } catch (err) {
+      showError('Erro de conexão com servidor');
     }
   });
 

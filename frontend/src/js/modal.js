@@ -17,8 +17,8 @@ export function setupModal({ openBtn, closeBtn, cancelBtn, overlay, form, onClos
   cancelBtn.addEventListener('click', close);
 
   overlay.addEventListener('click', (e) => {
-    if (e.target === overlay) close();
+   if (e.target === overlay) close();
   });
 
   return { open, close };
-}
+} 

@@ -485,7 +485,7 @@ label {
   gap: 10px;
 }
 
-.file-label .camera-button {
+.file-label {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -529,16 +529,16 @@ textarea {
 }
 
 .image-preview {
-  display: grid;
-  gap: 10px;
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  padding: 12px;
-  background: #f8f2e7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .image-preview img {
-  width: 100%;
+  max-width: 250px;
+  max-height: 250px;
+  width: auto;
+  height: auto;
   border-radius: 16px;
   object-fit: cover;
 }

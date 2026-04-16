@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/frontend/src/styles/main.css">
+  <title>Cheff&Cuccina</title>
+</head>
+    <body data-page ="register">
+        <div class="login-container">
+    <img src="/frontend/src/img/logo.png" alt="Logo">
+
+    <form id="registerForm">
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" id="username" required>
+        </div>
+        <div>
+            <label for="Name">Name:</label>
+            <input type="text" id="Name" required>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" required>
+        </div>
+
+        <p id="errorMsg"></p>
+
+        <button type="Submit" id="submit">confirm</button>
+    </form>
+</div>
+
+<script type="module" src="/frontend/src/js/main.js"></script>
+    </body>
+</html>

@@ -17,7 +17,7 @@ export function setupImagePreview({ input, previewImg, container, removeBtn }) {
     container.classList.add('hidden');
   }
 
-  input.addEventListener('change', (e) => {
+ input.addEventListener('change', (e) => {
     const file = e.target.files[0];
 
     if (!file || !file.type.startsWith('image/')) {
@@ -26,7 +26,7 @@ export function setupImagePreview({ input, previewImg, container, removeBtn }) {
     }
 
     show(file);
-  });
+  }); 
 
   removeBtn.addEventListener('click', () => {
     input.value = '';

@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="/frontend/src/styles/main.css">
   <title>Cheff&Cuccina</title>
 </head>
-    <body>
+    <body data-page="login">
         <div class="login-container">
     <img src="/frontend/src/img/logo.png" alt="Logo">
 
@@ -23,8 +23,9 @@
 
         <p id="errorMsg"></p>
 
-        <button type="submit">Login</button>
+        <button type="submit" id="submitLog">Login</button>
     </form>
+    <button id="registerBtn">Register</button>
 </div>
 
 <script type="module" src="/frontend/src/js/main.js"></script>

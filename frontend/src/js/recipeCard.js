@@ -1,16 +1,23 @@
 import { escapeHtml } from './escapeHtml.js';
+import { timeAgo } from './utils.js';
 
 export function createRecipeCard(data) {
   const card = document.createElement('article');
   card.className = 'recipe-page'; // 👈 mudou aqui
 
+  console.log('Criando card com dados:', data); // 🔥 log para verificar os dados
+  const dt_ago = timeAgo(data.date_create);
   // HEADER
   const header = document.createElement('div');
   header.className = 'page-header';
   header.innerHTML = `
     <div class="card-author">
       <span class="author-badge">C</span>
-      <span><strong>${escapeHtml(data.author)}</strong> • Agora</span>
+      <span>
+        <strong>${escapeHtml(data.author)}</strong>
+      <span class="dot-separator">•</span>
+  ${dt_ago}
+</span>
     </div>
     <h2 class="recipe-title">${escapeHtml(data.title)}</h2>
   `;

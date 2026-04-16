@@ -41,6 +41,10 @@
   border-radius: 12px;
   font-weight: 800;
 }
+.login-container .registerBtn {
+  background: transparent;
+  border: 2px solid var(--primary);
+}
 
 .login-container button:hover {
   background: var(--primary-dark);

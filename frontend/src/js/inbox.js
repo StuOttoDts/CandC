@@ -17,6 +17,7 @@ const messages = [
     timestamp: new Date().toLocaleString('pt-BR', { dateStyle: 'short' })
   }
 ];
+
 let html = '<div class="message-container">';
 
 messages.forEach(message => {
@@ -34,4 +35,4 @@ messages.forEach(message => {
 html += '</div>';
 
 panel.innerHTML = html;
-}
+} 
